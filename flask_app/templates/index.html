@@ -51,17 +51,21 @@
             </div>
             <div>
                 <h1>Create Friendship</h1>
-                <form action="" method="get">
+                <form action="/create_friend" method="post">
                     <div>
                         <label for="" class="my-3">User:</label>
-                        <select name="" id="">
-                            <option value="">SAMPLE</option>
+                        <select name="user" id="">
+                            {% for user in users%}
+                            <option value="{{user.id}}">{{user.first_name}} {{user.last_name}}</option>
+                            {% endfor %}
                         </select>
                     </div>
                     <div>
                         <label for="">Friend:</label>
-                        <select name="" id="">
-                            <option value="">SAMPLE</option>
+                        <select name="friend" id="">
+                            {% for user in users%}
+                            <option value="{{user.id}}">{{user.first_name}} {{user.last_name}}</option>
+                            {% endfor %}
                         </select>
                     </div>
                     <button type="submit" class="my-3 btn btn2 btn-primary">Create</button>

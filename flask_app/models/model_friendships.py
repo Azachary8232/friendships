@@ -18,9 +18,10 @@ class Friendships:
     def get_all(cls):
         query = "SELECT users.first_name, users.last_name, users2.first_name AS friend_first_name, users2.last_name AS friend_last_name FROM users JOIN friendships ON users.id = friendships.user_id LEFT JOIN users AS users2 ON friendships.friend_id = users2.id;"
         results = connectToMySQL(model_db).query_db(query)
-        print('!!!!')
-        print(results)
-        # (userS/no()) = []
-        # for user in results:
-        #     (userS/no()).append(cls(user))
+        return results
+
+    @classmethod
+    def create_friendship(cls,data):
+        query = "INSERT INTO friendships (user_id, friend_id) VALUES (%(user_id)s, %(friend_id)s);"
+        results = connectToMySQL(model_db).query_db(query,data)
         return results

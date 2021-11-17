@@ -3,7 +3,7 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask_app import app
 
-modeldb = "friendship_schema"
+modeldb = "friendships_schema"
 
 
 
@@ -31,7 +31,11 @@ class User:
 
     # ***Retreive***
 
-
+    @classmethod
+    def get_all(cls):
+        query = "SELECT * FROM users;"
+        results = connectToMySQL(modeldb).query_db(query)
+        return results
 
 
 
