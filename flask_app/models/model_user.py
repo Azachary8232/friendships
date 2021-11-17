@@ -7,11 +7,13 @@ import re
 from flask_bcrypt import Bcrypt        
 bcrypt = Bcrypt(app) 
 
+modeldb = friendships
 
 
 
 
-class (User)/no():
+
+class User:
     def __init__(self,data):
         self.id = data['id']
 
